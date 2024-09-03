@@ -13,8 +13,8 @@ footer {
 }
 '''
 
-yolo_model = YOLO("trained/yolov8x.pt")
-pose_model = YOLO("trained/yolov8x-pose-p6.pt")
+yolo_model = YOLO("LFS/yolov8x.pt")
+pose_model = YOLO("LFS/yolov8x-pose-p6.pt")
 names = yolo_model.model.names
 
 # Initialize Solutions
@@ -77,7 +77,7 @@ with gr.Blocks(css=css, theme="allenai/gradio-theme") as demo:
             with gr.Column():
                 gr.Examples(
                     examples=[
-                        ["video/WorkoutMonitoring.mp4", "Workout Monitoring"],
+                        ["video/pushup3.mp4", "Workout Monitoring"],
                     ],
                     inputs=[video_input, function_selector]
                 )
