@@ -47,6 +47,10 @@ def process_video(video_path, function):
         if function == "Workout Monitoring":
             results = pose_model.track(im0, verbose=False)
             im0 = gym_object.start_counting(im0, results)
+            out_count = gym_object.count  #-------------------- write json
+            print(out_count)
+            with open("json/save_data.json", "w") as f:
+                json.dump(out_count, f)
         video_writer.write(im0)
 
     cap.release()
